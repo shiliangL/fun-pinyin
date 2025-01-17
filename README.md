@@ -1,35 +1,86 @@
-# fast-pp
+# 儿童拼音学习小程序项目文档
 
-This template should help get you started developing with Vue 3 in Vite.
+## 项目概述
+- **目标用户**：3-6岁学龄前儿童
+- **核心功能**：通过趣味互动学习拼音
+- **平台**：微信小程序（后续可扩展至H5、App）
 
-## Recommended IDE Setup
+## 功能模块设计
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### 学习模块
+- 拼音卡片：声母、韵母、整体认读音节分类展示
+- 发音示范：标准发音+动画口型演示
+- 互动练习：点击拼音播放发音，拖拽配对声韵母
 
-## Customize configuration
+### 游戏模块
+- 拼音接龙：根据提示选择正确拼音
+- 拼音拼图：将声母和韵母组合成完整拼音
+- 拼音找朋友：将拼音与对应图片匹配
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 成就系统
+- 学习进度展示
+- 每日签到奖励
+- 成就徽章收集
 
-## Project Setup
+## 交互设计要点
+- 大按钮、大图标，便于儿童操作
+- 鲜艳色彩搭配，吸引儿童注意力
+- 语音引导+动画反馈，增强趣味性
+- 操作简单直观，减少文字说明
 
-```sh
-pnpm install
+## 技术实现方案
+
+### 项目结构
+```
+pages/
+  index/ 首页
+  learn/ 学习模块
+  game/ 游戏模块
+  profile/ 成就系统
+components/ 公共组件
+static/ 资源文件
+  audio/ 音频资源
+  images/ 图片资源
+  animations/ 动画资源
+store/ Vuex状态管理
+utils/ 工具函数
 ```
 
-### Compile and Hot-Reload for Development
+### 核心功能实现
+- **学习模块**
+  - 拼音卡片：uni-list组件
+  - 发音示范：微信小程序createInnerAudioContext API
+  - 互动练习：uni-drag组件
 
-```sh
-pnpm dev
-```
+- **游戏模块**
+  - 拼音接龙：uni-popup + uni-buttons
+  - 拼音拼图：canvas + touch事件
+  - 拼音找朋友：uni-grid + 动画
 
-### Compile and Minify for Production
+- **成就系统**
+  - Vuex状态管理
+  - uni-badge展示徽章
+  - uni-calendar实现签到
 
-```sh
-pnpm build
-```
+## 性能优化
+- 分包加载
+- WebP图片格式
+- 缓存机制
+- 虚拟列表
 
-### Lint with [ESLint](https://eslint.org/)
+## 扩展性设计
+- 插件化架构
+- 通用拼音数据格式
+- 配置中心管理难度参数
+- AR功能接口预留
 
-```sh
-pnpm lint
-```
+## 安全与隐私
+- uni-app storage API
+- 内容加密存储
+- 家长控制功能
+
+## 开发工具
+- HBuilderX开发调试
+- uni-app云打包
+- Git版本控制
+- uniCloud数据统计
