@@ -3,6 +3,8 @@
 /* 水平间距 */
 .learn-container.data-v-45919a50 {
   padding: 20px;
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 .pinyin-cards.data-v-45919a50 {
   display: grid;
@@ -11,75 +13,124 @@
   margin-bottom: 30px;
 }
 .pinyin-cards .card-item.data-v-45919a50 {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+.pinyin-cards .card-item.data-v-45919a50:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 .pinyin-cards .card-item .card-content.data-v-45919a50 {
   display: flex;
   flex-direction: column;
 }
 .pinyin-cards .card-item .card-content .pinyin-text.data-v-45919a50 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #333;
+  display: flex;
+  align-items: center;
+}
+.pinyin-cards .card-item .card-content .pinyin-text.data-v-45919a50::before {
+  content: '🔤';
+  margin-right: 8px;
 }
 .pinyin-cards .card-item .card-content .chinese-text.data-v-45919a50 {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
+  margin-top: 8px;
 }
 .pinyin-cards .card-item .play-icon.data-v-45919a50 {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 8px;
+  background: #f0f4ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .learning-progress.data-v-45919a50 {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 .learning-progress .progress-text.data-v-45919a50 {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.learning-progress .progress-text.data-v-45919a50::before {
+  content: '📚';
+  margin-right: 8px;
+}
+.learning-progress .progress-bar.data-v-45919a50 {
+  border-radius: 10px;
+  overflow: hidden;
 }
 .practice-mode.data-v-45919a50 {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 .practice-mode .mode-header.data-v-45919a50 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 .practice-mode .mode-header .title.data-v-45919a50 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.practice-mode .mode-header .title.data-v-45919a50::before {
+  content: '🎯';
+  margin-right: 8px;
 }
 .practice-mode .mode-header .sub-title.data-v-45919a50 {
   font-size: 14px;
   color: #666;
+  margin-top: 8px;
 }
 .practice-mode .mode-list.data-v-45919a50 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 15px;
 }
 .practice-mode .mode-list .mode-item.data-v-45919a50 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+  border-radius: 15px;
+  background: #f8f9ff;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+.practice-mode .mode-list .mode-item.data-v-45919a50:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 .practice-mode .mode-list .mode-item .mode-icon.data-v-45919a50 {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
 }
 .practice-mode .mode-list .mode-item .mode-text.data-v-45919a50 {
   font-size: 14px;
   color: #333;
   text-align: center;
+  font-weight: 500;
 }
 

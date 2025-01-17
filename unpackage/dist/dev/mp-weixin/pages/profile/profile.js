@@ -221,18 +221,23 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
       badges: [{
         name: '拼音小能手',
-        icon: '/static/icons/badge1.png'
+        icon: '🏆'
       }, {
         name: '游戏达人',
-        icon: '/static/icons/badge2.png'
+        icon: '🎖️'
       }, {
         name: '学习之星',
-        icon: '/static/icons/badge3.png'
+        icon: '🏅'
       }],
       selectedDates: [{
         date: '2023-10-01',

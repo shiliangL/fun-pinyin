@@ -100,9 +100,21 @@ export default {
         this.learnedCount++
       }
     },
+
     startPractice(mode) {
-      uni.navigateTo({
-        url: `/pages/learn/practice?type=${mode.type}`
+      // 使用switchTab进行页面切换
+      uni.switchTab({
+        url: `/pages/game/game`,
+        success: () => {
+          console.log('跳转成功')
+        },
+        fail: (err) => {
+          uni.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          })
+          console.error('跳转失败:', err)
+        }
       })
     }
   }
@@ -112,6 +124,8 @@ export default {
 <style lang="scss" scoped>
 .learn-container {
   padding: 20px;
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 
 .pinyin-cards {
@@ -121,88 +135,137 @@ export default {
   margin-bottom: 30px;
   
   .card-item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
     
     .card-content {
       display: flex;
       flex-direction: column;
       
       .pinyin-text {
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
         color: #333;
+        display: flex;
+        align-items: center;
+        
+        &::before {
+          content: '🔤';
+          margin-right: 8px;
+        }
       }
       
       .chinese-text {
-        font-size: 16px;
+        font-size: 18px;
         color: #666;
+        margin-top: 8px;
       }
     }
     
     .play-icon {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      padding: 8px;
+      background: #f0f4ff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   }
 }
 
 .learning-progress {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   
   .progress-text {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: '📚';
+      margin-right: 8px;
+    }
+  }
+  
+  .progress-bar {
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
 
 .practice-mode {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   
   .mode-header {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     
     .title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      
+      &::before {
+        content: '🎯';
+        margin-right: 8px;
+      }
     }
     
     .sub-title {
       font-size: 14px;
       color: #666;
+      margin-top: 8px;
     }
   }
   
   .mode-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 15px;
     
     .mode-item {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 15px;
+      border-radius: 15px;
+      background: #f8f9ff;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
       
       .mode-icon {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 10px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
       }
       
       .mode-text {
         font-size: 14px;
         color: #333;
         text-align: center;
+        font-weight: 500;
       }
     }
   }

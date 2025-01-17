@@ -2,7 +2,7 @@
   <view class="index-container">
     <!-- 欢迎区域 -->
     <view class="welcome-section">
-      <image class="avatar" src="/static/logo.png" />
+      <image class="avatar" src="https://picsum.photos/200/200?random=2025" />
       <text class="welcome-text">欢迎回来！</text>
       <text class="sub-text">今天也要努力学习拼音哦~</text>
     </view>
@@ -45,13 +45,16 @@
           class="task-item"
           v-for="(task, index) in tasks"
           :key="index"
+          @click="toggleTask(index)"
         >
-          <checkbox 
-            :value="task.completed"
-            :checked="task.completed"
-            @click="toggleTask(index)"
+          <uni-icons 
+            :type="task.completed ? 'checkbox-filled' : 'circle'" 
+            :color="task.completed ? '#4a90e2' : '#ccc'"
+            size="20"
           />
-          <text class="task-text">{{ task.text }}</text>
+          <text class="task-text" :class="{ completed: task.completed }">
+            {{ task.text }}
+          </text>
         </view>
       </view>
     </view>
@@ -59,7 +62,14 @@
 </template>
 
 <script>
+import uniList from '@/uni_modules/uni-list/components/uni-list/uni-list.vue'
+import uniListItem from '@/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue'
+
 export default {
+  components: {
+    uniList,
+    uniListItem
+  },
   data() {
     return {
       progress: 45,
@@ -91,8 +101,18 @@ export default {
   },
   methods: {
     handleAction(path) {
-      uni.navigateTo({
-        url: path
+      uni.switchTab({
+        url: path,
+        success: () => {
+          console.log('跳转成功')
+        },
+        fail: (err) => {
+          uni.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          })
+          console.error('跳转失败:', err)
+        }
       })
     },
     toggleTask(index) {
@@ -104,99 +124,165 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.index-container {
+.profile-container {
   padding: 20px;
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 
-.welcome-section {
+.user-info {
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
   
   .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
-  .welcome-text {
-    font-size: 20px;
+  .info-bubble {
+    background: linear-gradient(135deg, #6a8eff, #4a7dff);
+    padding: 15px 20px;
+    border-radius: 20px;
+    color: #fff;
+  }
+  
+  .username {
+    font-size: 18px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-bottom: 5px;
   }
   
-  .sub-text {
+  .level {
     font-size: 14px;
-    color: #666;
+    opacity: 0.9;
   }
 }
 
 .quick-actions {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
   margin-bottom: 30px;
   
   .action-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
     
     .action-icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: linear-gradient(135deg, #6a8eff, #4a7dff);
+      border-radius: 15px;
     }
     
     .action-text {
       font-size: 14px;
+      font-weight: bold;
       color: #333;
     }
   }
 }
 
 .progress-section {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
   
   .progress-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 15px;
     
     .title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
+      color: #333;
     }
     
     .sub-title {
       font-size: 14px;
-      color: #666;
+      font-weight: 500;
+      color: #4a7dff;
+    }
+  }
+  
+  .progress-bar {
+    position: relative;
+    
+    &::after {
+      content: attr(percent);
+      position: absolute;
+      right: 0;
+      top: -20px;
+      font-size: 12px;
+      color: #4a7dff;
+      font-weight: bold;
     }
   }
 }
 
 .daily-task {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
   
   .task-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 15px;
     
     .title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
+      color: #333;
     }
     
     .sub-title {
       font-size: 14px;
-      color: #666;
+      font-weight: 500;
+      color: #4a7dff;
     }
   }
   
@@ -204,11 +290,32 @@ export default {
     .task-item {
       display: flex;
       align-items: center;
-      margin: 10px 0;
+      padding: 15px;
+      margin: 8px 0;
+      border-radius: 15px;
+      background: #f8f9ff;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: #f0f3ff;
+      }
       
       .task-text {
-        margin-left: 10px;
+        margin-left: 15px;
         font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        transition: all 0.2s ease;
+        
+        &.completed {
+          color: #999;
+          text-decoration: line-through;
+          opacity: 0.8;
+        }
+      }
+      
+      .uni-icons {
+        transition: all 0.2s ease;
       }
     }
   }

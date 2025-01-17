@@ -79,8 +79,18 @@ export default {
   },
   methods: {
     startGame(game) {
-      uni.navigateTo({
-        url: `/pages/game/${game.type}`
+      uni.switchTab({
+        url: `/pages/learn/learn`,
+        success: () => {
+          console.log('跳转成功')
+        },
+        fail: (err) => {
+          uni.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          })
+          console.error('跳转失败:', err)
+        }
       })
     }
   }
@@ -90,6 +100,8 @@ export default {
 <style lang="scss" scoped>
 .game-container {
   padding: 20px;
+  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  min-height: 100vh;
 }
 
 .game-selection {
@@ -99,62 +111,106 @@ export default {
   margin-bottom: 30px;
   
   .game-item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
     
     .game-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 10px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .game-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: bold;
       color: #333;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      
+      &::before {
+        content: '🎮';
+        margin-right: 8px;
+      }
     }
     
     .game-description {
-      font-size: 12px;
+      font-size: 14px;
       color: #666;
       text-align: center;
+      line-height: 1.4;
     }
   }
 }
 
 .game-progress {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   
   .progress-text {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: '📊';
+      margin-right: 8px;
+    }
+  }
+  
+  .progress-bar {
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
 
 .game-instructions {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   
   .title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: '📝';
+      margin-right: 8px;
+    }
   }
   
   .content {
     font-size: 14px;
     color: #666;
     white-space: pre-line;
+    line-height: 1.6;
+    padding-left: 28px;
+    
+    &::before {
+      content: '👉';
+      margin-right: 8px;
+    }
   }
 }
 </style>

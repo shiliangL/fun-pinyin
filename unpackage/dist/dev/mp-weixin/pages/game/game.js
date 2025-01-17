@@ -229,8 +229,18 @@ var _default = {
   },
   methods: {
     startGame: function startGame(game) {
-      uni.navigateTo({
-        url: "/pages/game/".concat(game.type)
+      uni.switchTab({
+        url: "/pages/learn/learn",
+        success: function success() {
+          console.log('跳转成功');
+        },
+        fail: function fail(err) {
+          uni.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          });
+          console.error('跳转失败:', err);
+        }
       });
     }
   }

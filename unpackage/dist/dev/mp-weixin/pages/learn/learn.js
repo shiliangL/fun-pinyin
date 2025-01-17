@@ -260,8 +260,19 @@ var _default = {
       }
     },
     startPractice: function startPractice(mode) {
-      uni.navigateTo({
-        url: "/pages/learn/practice?type=".concat(mode.type)
+      // 使用switchTab进行页面切换
+      uni.switchTab({
+        url: "/pages/game/game",
+        success: function success() {
+          console.log('跳转成功');
+        },
+        fail: function fail(err) {
+          uni.showToast({
+            title: '页面跳转失败',
+            icon: 'none'
+          });
+          console.error('跳转失败:', err);
+        }
       });
     }
   }
