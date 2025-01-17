@@ -782,7 +782,7 @@ function populateParameters(result) {
   // wx.getAccountInfoSync
 
   var parameters = {
-    appId: "__UNI__ABCDEFG",
+    appId: "__UNI__199CD16",
     appName: "儿童拼音学习",
     appVersion: "1.0.0",
     appVersionCode: "100",
@@ -883,7 +883,7 @@ var getAppBaseInfo = {
     var _hostName = getHostName(result);
     var hostLanguage = (language || '').replace('_', '-');
     result = sortObject(Object.assign(result, {
-      appId: "__UNI__ABCDEFG",
+      appId: "__UNI__199CD16",
       appName: "儿童拼音学习",
       appVersion: "1.0.0",
       appVersionCode: "100",
@@ -9518,7 +9518,7 @@ var PAGE_PVER_TIME = 1800; // 页面在前台无操作结束访问时间 单位s
 var APP_PVER_TIME = 300; // 应用在后台结束访问时间 单位s
 var OPERATING_TIME = 10; // 数据上报时间 单位s
 var DIFF_TIME = 60 * 1000 * 60 * 24;
-var appid = "__UNI__ABCDEFG"; // 做应用隔离
+var appid = "__UNI__199CD16"; // 做应用隔离
 var dbSet = function dbSet(name, value) {
   var data = uni.getStorageSync('$$STAT__DBDATA:' + appid) || {};
   if (!data) {
@@ -9558,7 +9558,7 @@ var dbRemove = function dbRemove(name) {
 // 获取 manifest.json 中统计配置
 var uniStatisticsConfig = {"enable":true};
 var statConfig = {
-  appid: "__UNI__ABCDEFG"
+  appid: "__UNI__199CD16"
 };
 var titleJsons = {};
 var debug =  false || false;
@@ -9915,7 +9915,7 @@ var is_report_data = function is_report_data() {
   });
 };
 var requestData = function requestData(done) {
-  var appid = "__UNI__ABCDEFG";
+  var appid = "__UNI__199CD16";
   var formData = {
     usv: STAT_VERSION,
     conf: JSON.stringify({
@@ -11131,9 +11131,7 @@ exports.default = _default;
 /* 35 */,
 /* 36 */,
 /* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */
+/* 38 */
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -11264,7 +11262,7 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 41 */
+/* 39 */
 /*!*******************************************!*\
   !*** C:/shiliangL/fast-yk/store/index.js ***!
   \*******************************************/
@@ -11281,7 +11279,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 25));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 42));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 40));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 _vue.default.use(_vuex.default);
@@ -11366,7 +11364,7 @@ var _default = store;
 exports.default = _default;
 
 /***/ }),
-/* 42 */
+/* 40 */
 /*!**************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vuex3/dist/vuex.common.js ***!
   \**************************************************************************************/
@@ -12622,6 +12620,8 @@ module.exports = index_cjs;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
+/* 41 */,
+/* 42 */,
 /* 43 */,
 /* 44 */,
 /* 45 */,
@@ -12657,9 +12657,7 @@ module.exports = index_cjs;
 /* 75 */,
 /* 76 */,
 /* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */
+/* 78 */
 /*!*************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/util.js ***!
   \*************************************************************************************/
@@ -12677,7 +12675,7 @@ exports.default = void 0;
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ 23));
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/createClass */ 24));
-var _calendar = _interopRequireDefault(__webpack_require__(/*! ./calendar.js */ 81));
+var _calendar = _interopRequireDefault(__webpack_require__(/*! ./calendar.js */ 79));
 var Calendar = /*#__PURE__*/function () {
   function Calendar() {
     var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
@@ -13074,7 +13072,7 @@ var _default = Calendar;
 exports.default = _default;
 
 /***/ }),
-/* 81 */
+/* 79 */
 /*!*****************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/calendar.js ***!
   \*****************************************************************************************/
@@ -13591,7 +13589,7 @@ var _default = calendar;
 exports.default = _default;
 
 /***/ }),
-/* 82 */
+/* 80 */
 /*!*******************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/i18n/index.js ***!
   \*******************************************************************************************/
@@ -13606,9 +13604,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 83));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 84));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 85));
+var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 81));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 82));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 83));
 var _default = {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -13617,7 +13615,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 83 */
+/* 81 */
 /*!******************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/i18n/en.json ***!
   \******************************************************************************************/
@@ -13627,7 +13625,7 @@ exports.default = _default;
 module.exports = JSON.parse("{\"uni-calender.ok\":\"ok\",\"uni-calender.cancel\":\"cancel\",\"uni-calender.today\":\"today\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\"}");
 
 /***/ }),
-/* 84 */
+/* 82 */
 /*!***********************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/i18n/zh-Hans.json ***!
   \***********************************************************************************************/
@@ -13637,7 +13635,7 @@ module.exports = JSON.parse("{\"uni-calender.ok\":\"ok\",\"uni-calender.cancel\"
 module.exports = JSON.parse("{\"uni-calender.ok\":\"确定\",\"uni-calender.cancel\":\"取消\",\"uni-calender.today\":\"今日\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\"}");
 
 /***/ }),
-/* 85 */
+/* 83 */
 /*!***********************************************************************************************!*\
   !*** C:/shiliangL/fast-yk/uni_modules/uni-calendar/components/uni-calendar/i18n/zh-Hant.json ***!
   \***********************************************************************************************/
