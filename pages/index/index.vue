@@ -289,6 +289,7 @@ export default {
       border-radius: 15px;
       background: #f8f9ff;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
       
       &:hover {
         background: #f0f3ff;
@@ -302,7 +303,7 @@ export default {
         transition: all 0.2s ease;
         
         &.completed {
-          color: #999;
+          color: #4a7dff;
           text-decoration: line-through;
           opacity: 0.8;
         }
