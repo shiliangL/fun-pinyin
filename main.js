@@ -1,25 +1,38 @@
-
-// #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import store from './store'
 
-Vue.config.productionTip = false
+// 全局错误处理
+Vue.config.errorHandler = (err, vm, info) => {
+  console.error('Global error:', err)
+  vm.$emit('global-error', {
+    message: err.message,
+    type: 'error'
+  })
+}
 
-App.mpType = 'app'
+// 全局加载状态
+Vue.prototype.$showLoading = function(loading = true) {
+  this.$emit('global-loading', loading)
+}
 
+// 创建Vue实例
 const app = new Vue({
-    ...App
+  store,
+  ...App
 })
-app.$mount()
-// #endif
 
-// #ifdef VUE3
-import { createSSRApp } from 'vue'
-import App from './App.vue'
-export function createApp() {
-  const app = createSSRApp(App)
-  return {
-    app
+// 挂载应用
+app.$mount()
+
+export default {
+  config: {
+    pages: [],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: '儿童拼音学习',
+      navigationBarTextStyle: 'black'
+    }
   }
 }
-// #endif

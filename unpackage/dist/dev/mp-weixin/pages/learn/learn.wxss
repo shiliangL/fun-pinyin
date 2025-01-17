@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.learn-container.data-v-45919a50 {
+  padding: 20px;
+}
+.pinyin-cards.data-v-45919a50 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.pinyin-cards .card-item.data-v-45919a50 {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pinyin-cards .card-item .card-content.data-v-45919a50 {
+  display: flex;
+  flex-direction: column;
+}
+.pinyin-cards .card-item .card-content .pinyin-text.data-v-45919a50 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+.pinyin-cards .card-item .card-content .chinese-text.data-v-45919a50 {
+  font-size: 16px;
+  color: #666;
+}
+.pinyin-cards .card-item .play-icon.data-v-45919a50 {
+  width: 24px;
+  height: 24px;
+}
+.learning-progress.data-v-45919a50 {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.learning-progress .progress-text.data-v-45919a50 {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.practice-mode.data-v-45919a50 {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
+.practice-mode .mode-header.data-v-45919a50 {
+  margin-bottom: 15px;
+}
+.practice-mode .mode-header .title.data-v-45919a50 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.practice-mode .mode-header .sub-title.data-v-45919a50 {
+  font-size: 14px;
+  color: #666;
+}
+.practice-mode .mode-list.data-v-45919a50 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.practice-mode .mode-list .mode-item.data-v-45919a50 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.practice-mode .mode-list .mode-item .mode-icon.data-v-45919a50 {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+.practice-mode .mode-list .mode-item .mode-text.data-v-45919a50 {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
