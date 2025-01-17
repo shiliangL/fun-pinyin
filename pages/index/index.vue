@@ -124,87 +124,91 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.profile-container {
+.index-container {
   padding: 20px;
   background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
   min-height: 100vh;
 }
 
-.user-info {
+.welcome-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
   padding: 20px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
   
   .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-bottom: 15px;
     border: 3px solid #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
-  .info-bubble {
-    background: linear-gradient(135deg, #6a8eff, #4a7dff);
-    padding: 15px 20px;
-    border-radius: 20px;
-    color: #fff;
-  }
-  
-  .username {
+  .welcome-text {
     font-size: 18px;
     font-weight: bold;
+    color: #333;
     margin-bottom: 5px;
   }
   
-  .level {
+  .sub-text {
     font-size: 14px;
-    opacity: 0.9;
+    color: #666;
   }
 }
 
 .quick-actions {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 4px;
+  margin-bottom: 40px;
+  padding: 0 10px;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   
   .action-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+    justify-content: center;
+    padding: 20px 15px;
+    // background: #fff;
+    // border-radius: 25px;
+    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+    min-width: 0;
     
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
     }
     
     .action-icon {
       width: 50px;
       height: 50px;
       margin-bottom: 15px;
-      padding: 10px;
-      background: linear-gradient(135deg, #6a8eff, #4a7dff);
-      border-radius: 15px;
+      padding: 12px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
+      transition: all 0.3s ease;
     }
     
     .action-text {
       font-size: 14px;
-      font-weight: bold;
-      color: #333;
+      font-weight: 600;
+      color: #4a7dff;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
   }
 }
@@ -215,11 +219,6 @@ export default {
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
   
   .progress-header {
     display: flex;
@@ -261,11 +260,6 @@ export default {
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
   
   .task-header {
     display: flex;
