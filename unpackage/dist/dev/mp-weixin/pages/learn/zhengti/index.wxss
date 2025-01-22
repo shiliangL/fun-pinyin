@@ -1,0 +1,62 @@
+/* 水平间距 */
+/* 水平间距 */
+.zhengti-container {
+  padding: 20px;
+}
+.zhengti-container .header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.zhengti-container .header .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+.zhengti-container .header .progress {
+  font-size: 14px;
+  color: #666;
+}
+.zhengti-container .grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.zhengti-container .grid-container .pinyin-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.zhengti-container .grid-container .pinyin-card.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.zhengti-container .grid-container .pinyin-card.practiced {
+  background: #f0f9eb;
+}
+.zhengti-container .grid-container .pinyin-card .pinyin {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+.zhengti-container .grid-container .pinyin-card .play-icon {
+  width: 24px;
+  height: 24px;
+}
+.zhengti-container .grid-container .pinyin-card .checkmark {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: #67c23a;
+  font-size: 12px;
+  font-weight: bold;
+}

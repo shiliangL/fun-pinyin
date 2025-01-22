@@ -1,318 +1,306 @@
 <template>
-  <view class="index-container">
-    <!-- 欢迎区域 -->
-    <view class="welcome-section">
-      <image class="avatar" src="https://picsum.photos/200/200?random=2025" />
-      <text class="welcome-text">欢迎回来！</text>
-      <text class="sub-text">今天也要努力学习拼音哦~</text>
-    </view>
+	<view class="container">
+		<!-- Banner Section -->
+		<view class="banner">
+			<swiper class="swiper" autoplay circular indicator-dots>
+				<swiper-item>
+					<image class="banner-image" src="/static/c1.png" mode="aspectFill"></image>
+					<view class="banner-text">
+						<text class="banner-title">欢迎来到拼音乐园！</text>
+						<text class="banner-subtitle">和小动物们一起学习拼音吧</text>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<image class="banner-image" src="/static/c2.png" mode="aspectFill"></image>
+					<view class="banner-text">
+						<text class="banner-title">每日学习小贴士</text>
+						<text class="banner-subtitle">今天学习：声母 b p m f</text>
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
 
-    <!-- 快速入口 -->
-    <view class="quick-actions">
-      <view 
-        class="action-item"
-        v-for="(item, index) in quickActions"
-        :key="index"
-        @click="handleAction(item.path)"
-      >
-        <image class="action-icon" :src="item.icon" />
-        <text class="action-text">{{ item.text }}</text>
-      </view>
-    </view>
+		<!-- Progress Section -->
+		<view class="progress-section">
+			<view class="progress-header">
+				<text class="progress-title">我的学习进度</text>
+				<text class="progress-percent">25%</text>
+			</view>
+			<view class="progress-bar">
+				<view class="progress-fill" :style="{width: '25%'}"></view>
+			</view>
+		</view>
 
-    <!-- 学习进度 -->
-    <view class="progress-section">
-      <view class="progress-header">
-        <text class="title">学习进度</text>
-        <text class="sub-title">已学习 {{ progress }}%</text>
-      </view>
-      <progress 
-        class="progress-bar"
-        :percent="progress"
-        stroke-width="6"
-        activeColor="#4a90e2"
-      />
-    </view>
+		<!-- Main Grid -->
+		<view class="grid-container">
+			<navigator
+				url="/pages/learn/index"
+				class="card learn-card"
+			>
+				<image class="icon" src="/static/icons/shengmu.png"></image>
+				<text class="label">声母学习</text>
+				<text class="sub-label">已学习 5/23</text>
+				<image class="decor" src="/static/c3.png"></image>
+			</navigator>
 
-    <!-- 每日任务 -->
-    <view class="daily-task">
-      <view class="task-header">
-        <text class="title">今日任务</text>
-        <text class="sub-title">已完成 {{ completedTasks }}/{{ totalTasks }} 项</text>
-      </view>
-      <view class="task-list">
-        <view 
-          class="task-item"
-          v-for="(task, index) in tasks"
-          :key="index"
-          @click="toggleTask(index)"
-        >
-          <uni-icons 
-            :type="task.completed ? 'checkbox-filled' : 'circle'" 
-            :color="task.completed ? '#4a90e2' : '#ccc'"
-            size="20"
-          />
-          <text class="task-text" :class="{ completed: task.completed }">
-            {{ task.text }}
-          </text>
-        </view>
-      </view>
-    </view>
-  </view>
+			<navigator
+				url="/pages/learn/index"
+				class="card yunmu-card"
+			>
+				<image class="icon" src="/static/icons/yunmu.png"></image>
+				<text class="label">韵母学习</text>
+				<text class="sub-label">已学习 3/24</text>
+				<image class="decor" src="/static/c4.png"></image>
+			</navigator>
+
+			<navigator
+				url="/pages/games/index"
+				class="card games-card"
+			>
+				<image class="icon" src="/static/icons/play.png"></image>
+				<text class="label">拼音游戏</text>
+				<text class="sub-label">3个新游戏</text>
+				<image class="decor" src="/static/c5.png"></image>
+			</navigator>
+
+			<navigator
+				url="/pages/profile/index"
+				class="card profile-card"
+			>
+				<image class="icon" src="/static/icons/zhengti.png"></image>
+				<text class="label">我的成就</text>
+				<text class="sub-label">已获得 2/10 徽章</text>
+				<image class="decor" src="/static/c6.png"></image>
+			</navigator>
+		</view>
+
+		<!-- Daily Tip -->
+		<view class="daily-tip">
+			<image class="tip-icon" src="/static/c7.png"></image>
+			<view class="tip-content">
+				<text class="tip-title">今日小知识</text>
+				<text class="tip-text">"b" 像小鼓敲起来，"p" 像气球飞上天</text>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
-import uniList from '@/uni_modules/uni-list/components/uni-list/uni-list.vue'
-import uniListItem from '@/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue'
-
 export default {
-  components: {
-    uniList,
-    uniListItem
-  },
-  data() {
-    return {
-      progress: 45,
-      completedTasks: 1,
-      totalTasks: 3,
-      tasks: [
-        { text: '完成拼音卡片学习', completed: true },
-        { text: '玩1个拼音游戏', completed: false },
-        { text: '复习昨日内容', completed: false }
-      ],
-      quickActions: [
-        {
-          text: '开始学习',
-          icon: '/static/tabbar/learn.png',
-          path: '/pages/learn/learn'
-        },
-        {
-          text: '拼音游戏',
-          icon: '/static/tabbar/game.png',
-          path: '/pages/game/game'
-        },
-        {
-          text: '我的成就',
-          icon: '/static/tabbar/profile.png',
-          path: '/pages/profile/profile'
-        }
-      ]
-    }
-  },
-  methods: {
-    handleAction(path) {
-      uni.switchTab({
-        url: path,
-        success: () => {
-          console.log('跳转成功')
-        },
-        fail: (err) => {
-          uni.showToast({
-            title: '页面跳转失败',
-            icon: 'none'
-          })
-          console.error('跳转失败:', err)
-        }
-      })
-    },
-    toggleTask(index) {
-      this.tasks[index].completed = !this.tasks[index].completed
-      this.completedTasks = this.tasks.filter(t => t.completed).length
-    }
-  }
+	data() {
+		return {}
+	}
 }
 </script>
 
-<style lang="scss" scoped>
-.index-container {
-  padding: 20px;
-  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
-  min-height: 100vh;
+<style lang="scss">
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-.welcome-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
-  .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .welcome-text {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .sub-text {
-    font-size: 14px;
-    color: #666;
-  }
-}
+.container {
+	padding: 20px;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 235, 205, 0.15),
+		rgba(255, 228, 196, 0.1)
+	);
+	backdrop-filter: blur(20px);
+	min-height: 100vh;
 
-.quick-actions {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  margin-bottom: 40px;
-  padding: 0 10px;
-  border-radius: 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  
-  .action-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 15px;
-    // background: #fff;
-    // border-radius: 25px;
-    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    aspect-ratio: 1/1;
-    min-width: 0;
-    
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
-    }
-    
-    .action-icon {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 15px;
-      padding: 12px;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
-      transition: all 0.3s ease;
-    }
-    
-    .action-text {
-      font-size: 14px;
-      font-weight: 600;
-      color: #4a7dff;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-    }
-  }
-}
+	.banner {
+		margin: -20px -20px 20px -20px;
+		height: 200px;
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
 
-.progress-section {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
-  .progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    
-    .title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-    
-    .sub-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: #4a7dff;
-    }
-  }
-  
-  .progress-bar {
-    position: relative;
-    
-    &::after {
-      content: attr(percent);
-      position: absolute;
-      right: 0;
-      top: -20px;
-      font-size: 12px;
-      color: #4a7dff;
-      font-weight: bold;
-    }
-  }
-}
+		.swiper {
+			height: 100%;
+		}
 
-.daily-task {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
-  .task-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    
-    .title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #333;
-    }
-    
-    .sub-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: #4a7dff;
-    }
-  }
-  
-  .task-list {
-    .task-item {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      margin: 8px 0;
-      border-radius: 15px;
-      background: #f8f9ff;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
-      
-      &:hover {
-        background: #f0f3ff;
-      }
-      
-      .task-text {
-        margin-left: 15px;
-        font-size: 14px;
-        font-weight: 500;
-        color: #333;
-        transition: all 0.2s ease;
-        
-        &.completed {
-          color: #4a7dff;
-          text-decoration: line-through;
-          opacity: 0.8;
-        }
-      }
-      
-      .uni-icons {
-        transition: all 0.2s ease;
-      }
-    }
-  }
+		.banner-image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.banner-text {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			background: rgba(255,255,255,0.8);
+			padding: 10px 20px;
+			border-radius: 15px;
+			backdrop-filter: blur(5px);
+
+			.banner-title {
+				font-size: 20px;
+				font-weight: bold;
+				color: #333;
+				display: block;
+			}
+
+			.banner-subtitle {
+				font-size: 14px;
+				color: #666;
+			}
+		}
+	}
+
+	.progress-section {
+		background: rgba(255,255,255,0.2);
+		border-radius: 20px;
+		padding: 15px;
+		margin-bottom: 20px;
+		backdrop-filter: blur(10px);
+
+		.progress-header {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 10px;
+
+			.progress-title {
+				font-size: 16px;
+				color: #fff;
+			}
+
+			.progress-percent {
+				font-size: 16px;
+				color: #fff;
+				font-weight: bold;
+			}
+		}
+
+		.progress-bar {
+			height: 8px;
+			background: rgba(255,255,255,0.3);
+			border-radius: 4px;
+			overflow: hidden;
+
+			.progress-fill {
+				height: 100%;
+				background: #ff9a9e;
+				border-radius: 4px;
+				transition: width 0.5s ease;
+			}
+		}
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+		margin-bottom: 20px;
+
+		.card {
+			background: rgba(255,255,255,0.2);
+			border-radius: 20px;
+			padding: 15px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			backdrop-filter: blur(10px);
+			box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+			border: 1px solid rgba(255,255,255,0.3);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			position: relative;
+			overflow: hidden;
+
+			&:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+			}
+
+			&:active {
+				transform: scale(0.98);
+			}
+
+			.icon {
+				width: 50px;
+				height: 50px;
+				margin-bottom: 10px;
+				filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+				z-index: 1;
+			}
+
+			.label {
+				font-size: 16px;
+				font-weight: 500;
+				color: #fff;
+				text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.sub-label {
+				font-size: 12px;
+				color: rgba(255,255,255,0.8);
+				margin-top: 5px;
+				z-index: 1;
+			}
+
+			.decor {
+				position: absolute;
+				right: -20px;
+				bottom: -20px;
+				width: 80px;
+				height: 80px;
+				opacity: 0.3;
+				animation: float 3s ease-in-out infinite;
+			}
+		}
+
+		.learn-card {
+			background: linear-gradient(135deg, rgba(168,224,99,0.7), rgba(86,171,47,0.7));
+		}
+
+		.yunmu-card {
+			background: linear-gradient(135deg, rgba(255,154,158,0.7), rgba(250,208,196,0.7));
+		}
+
+		.games-card {
+			background: linear-gradient(135deg, rgba(161,196,253,0.7), rgba(194,233,251,0.7));
+		}
+
+		.profile-card {
+			background: linear-gradient(135deg, rgba(255,193,7,0.7), rgba(255,235,59,0.7));
+		}
+	}
+
+	.daily-tip {
+		background: rgba(255,255,255,0.2);
+		border-radius: 20px;
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		backdrop-filter: blur(10px);
+
+		.tip-icon {
+			width: 60px;
+			height: 60px;
+			margin-right: 15px;
+			animation: float 3s ease-in-out infinite;
+		}
+
+		.tip-content {
+			flex: 1;
+
+			.tip-title {
+				font-size: 16px;
+				color: #fff;
+				font-weight: bold;
+				display: block;
+				margin-bottom: 5px;
+			}
+
+			.tip-text {
+				font-size: 14px;
+				color: rgba(255,255,255,0.8);
+			}
+		}
+	}
 }
 </style>

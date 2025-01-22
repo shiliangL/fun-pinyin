@@ -1,73 +1,78 @@
 {
-  "pages": [
-    {
-      "path": "pages/index/index",
-      "style": {
-        "navigationBarTitleText": "首页",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/learn/learn",
-      "style": {
-        "navigationBarTitleText": "学习",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/game/game",
-      "style": {
-        "navigationBarTitleText": "游戏",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/profile/profile",
-      "style": {
-        "navigationBarTitleText": "我的",
-        "enablePullDownRefresh": false
-      }
-    }
-  ],
-  "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "儿童拼音学习",
-    "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#f8f8f8",
-    "app-plus": {
-      "bounce": "none"
-    }
-  },
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#4a90e2",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "static/tabbar/home.png",
-        "selectedIconPath": "static/tabbar/home_active.png"
-      },
-      {
-        "pagePath": "pages/learn/learn",
-        "text": "学习",
-        "iconPath": "static/tabbar/learn.png",
-        "selectedIconPath": "static/tabbar/learn_active.png"
-      },
-      {
-        "pagePath": "pages/game/game",
-        "text": "游戏",
-        "iconPath": "static/tabbar/game.png",
-        "selectedIconPath": "static/tabbar/game_active.png"
-      },
-      {
-        "pagePath": "pages/profile/profile",
-        "text": "我的",
-        "iconPath": "static/tabbar/profile.png",
-        "selectedIconPath": "static/tabbar/profile_active.png"
-      }
-    ]
-  }
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/learn/index",
+			"style": {
+				"navigationBarTitleText": "学习"
+			}
+		},
+		{
+			"path": "pages/games/index",
+			"style": {
+				"navigationBarTitleText": "游戏"
+			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/learn/shengmu/index",
+			"style": {
+				"navigationBarTitleText": "声母学习"
+			}
+		},
+		{
+			"path": "pages/learn/yunmu/index",
+			"style": {
+				"navigationBarTitleText": "韵母学习"
+			}
+		},
+		{
+			"path": "pages/learn/zhengti/index",
+			"style": {
+				"navigationBarTitleText": "整体认读"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#999",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home_active.png"
+			},
+			{
+				"pagePath": "pages/learn/index",
+				"text": "学习",
+				"iconPath": "static/tabbar/learn.png",
+				"selectedIconPath": "static/tabbar/learn_active.png"
+			},
+			{
+				"pagePath": "pages/games/index",
+				"text": "游戏",
+				"iconPath": "static/tabbar/game.png",
+				"selectedIconPath": "static/tabbar/game_active.png"
+			},
+			{
+				"pagePath": "pages/profile/index",
+				"text": "我的",
+				"iconPath": "static/tabbar/profile.png",
+				"selectedIconPath": "static/tabbar/profile_active.png"
+			}
+		]
+	}
 }

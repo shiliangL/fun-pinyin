@@ -1,0 +1,26 @@
+"use strict";
+const _imports_0$3 = "/static/c1.png";
+const _imports_1 = "/static/c2.png";
+const _imports_0$2 = "/static/icons/shengmu.png";
+const _imports_3$1 = "/static/c3.png";
+const _imports_2 = "/static/icons/yunmu.png";
+const _imports_5 = "/static/c4.png";
+const _imports_0$1 = "/static/icons/play.png";
+const _imports_7 = "/static/c5.png";
+const _imports_3 = "/static/icons/zhengti.png";
+const _imports_9 = "/static/c6.png";
+const _imports_10 = "/static/c7.png";
+const _imports_0 = "/static/tabbar/game_active.png";
+exports._imports_0 = _imports_0$3;
+exports._imports_0$1 = _imports_0$2;
+exports._imports_0$2 = _imports_0$1;
+exports._imports_0$3 = _imports_0;
+exports._imports_1 = _imports_1;
+exports._imports_10 = _imports_10;
+exports._imports_2 = _imports_2;
+exports._imports_3 = _imports_3$1;
+exports._imports_3$1 = _imports_3;
+exports._imports_5 = _imports_5;
+exports._imports_7 = _imports_7;
+exports._imports_9 = _imports_9;
+//# sourceMappingURL=../../.sourcemap/mp-weixin/common/assets.js.map

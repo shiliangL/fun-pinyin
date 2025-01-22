@@ -1,22 +1,18 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/learn/learn",
-    "pages/game/game",
-    "pages/profile/profile"
+    "pages/learn/index",
+    "pages/games/index",
+    "pages/profile/index",
+    "pages/learn/shengmu/index",
+    "pages/learn/yunmu/index",
+    "pages/learn/zhengti/index"
   ],
-  "subPackages": [],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "儿童拼音学习",
-    "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#f8f8f8"
-  },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#4a90e2",
-    "backgroundColor": "#ffffff",
+    "color": "#999",
+    "selectedColor": "#007AFF",
     "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -25,19 +21,19 @@
         "selectedIconPath": "static/tabbar/home_active.png"
       },
       {
-        "pagePath": "pages/learn/learn",
+        "pagePath": "pages/learn/index",
         "text": "学习",
         "iconPath": "static/tabbar/learn.png",
         "selectedIconPath": "static/tabbar/learn_active.png"
       },
       {
-        "pagePath": "pages/game/game",
+        "pagePath": "pages/games/index",
         "text": "游戏",
         "iconPath": "static/tabbar/game.png",
         "selectedIconPath": "static/tabbar/game_active.png"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/profile/index",
         "text": "我的",
         "iconPath": "static/tabbar/profile.png",
         "selectedIconPath": "static/tabbar/profile_active.png"

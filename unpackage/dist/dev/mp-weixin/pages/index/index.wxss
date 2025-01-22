@@ -1,167 +1,188 @@
-@charset "UTF-8";
 /* 水平间距 */
 /* 水平间距 */
-.index-container.data-v-57280228 {
+@keyframes float {
+0% {
+    transform: translateY(0px);
+}
+50% {
+    transform: translateY(-10px);
+}
+100% {
+    transform: translateY(0px);
+}
+}
+.container {
   padding: 20px;
-  background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(255, 235, 205, 0.15), rgba(255, 228, 196, 0.1));
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
   min-height: 100vh;
 }
-.welcome-section.data-v-57280228 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: #fff;
+.container .banner {
+  margin: -20px -20px 20px -20px;
+  height: 200px;
+  position: relative;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
-.welcome-section .avatar.data-v-57280228 {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 3px solid #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.container .banner .swiper {
+  height: 100%;
 }
-.welcome-section .welcome-text.data-v-57280228 {
-  font-size: 18px;
+.container .banner .banner-image {
+  width: 100%;
+  height: 100%;
+}
+.container .banner .banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.container .banner .banner-text .banner-title {
+  font-size: 20px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 5px;
+  display: block;
 }
-.welcome-section .sub-text.data-v-57280228 {
+.container .banner .banner-text .banner-subtitle {
   font-size: 14px;
   color: #666;
 }
-.quick-actions.data-v-57280228 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  margin-bottom: 40px;
-  padding: 0 10px;
-  border-radius: 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+.container .progress-section {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
-.quick-actions .action-item.data-v-57280228 {
+.container .progress-section .progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.container .progress-section .progress-header .progress-title {
+  font-size: 16px;
+  color: #fff;
+}
+.container .progress-section .progress-header .progress-percent {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+}
+.container .progress-section .progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.container .progress-section .progress-bar .progress-fill {
+  height: 100%;
+  background: #ff9a9e;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.container .grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.container .grid-container .card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px 15px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
-  aspect-ratio: 1/1;
-  min-width: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
-.quick-actions .action-item.data-v-57280228:hover {
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+.container .grid-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
-.quick-actions .action-item .action-icon.data-v-57280228 {
+.container .grid-container .card:active {
+  transform: scale(0.98);
+}
+.container .grid-container .card .icon {
   width: 50px;
   height: 50px;
-  margin-bottom: 15px;
-  padding: 12px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
-  transition: all 0.3s ease;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  z-index: 1;
 }
-.quick-actions .action-item .action-text.data-v-57280228 {
-  font-size: 14px;
-  font-weight: 600;
-  color: #4a7dff;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-.progress-section.data-v-57280228 {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.progress-section .progress-header.data-v-57280228 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.progress-section .progress-header .title.data-v-57280228 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-.progress-section .progress-header .sub-title.data-v-57280228 {
-  font-size: 14px;
+.container .grid-container .card .label {
+  font-size: 16px;
   font-weight: 500;
-  color: #4a7dff;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
-.progress-section .progress-bar.data-v-57280228 {
-  position: relative;
-}
-.progress-section .progress-bar.data-v-57280228::after {
-  content: attr(percent);
-  position: absolute;
-  right: 0;
-  top: -20px;
+.container .grid-container .card .sub-label {
   font-size: 12px;
-  color: #4a7dff;
-  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 5px;
+  z-index: 1;
 }
-.daily-task.data-v-57280228 {
-  background: #fff;
+.container .grid-container .card .decor {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+.container .grid-container .learn-card {
+  background: linear-gradient(135deg, rgba(168, 224, 99, 0.7), rgba(86, 171, 47, 0.7));
+}
+.container .grid-container .yunmu-card {
+  background: linear-gradient(135deg, rgba(255, 154, 158, 0.7), rgba(250, 208, 196, 0.7));
+}
+.container .grid-container .games-card {
+  background: linear-gradient(135deg, rgba(161, 196, 253, 0.7), rgba(194, 233, 251, 0.7));
+}
+.container .grid-container .profile-card {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.7), rgba(255, 235, 59, 0.7));
+}
+.container .daily-tip {
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.daily-task .task-header.data-v-57280228 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.daily-task .task-header .title.data-v-57280228 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-.daily-task .task-header .sub-title.data-v-57280228 {
-  font-size: 14px;
-  font-weight: 500;
-  color: #4a7dff;
-}
-.daily-task .task-list .task-item.data-v-57280228 {
-  display: flex;
-  align-items: center;
   padding: 15px;
-  margin: 8px 0;
-  border-radius: 15px;
-  background: #f8f9ff;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(74, 125, 255, 0.15);
+  display: flex;
+  align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
-.daily-task .task-list .task-item.data-v-57280228:hover {
-  background: #f0f3ff;
+.container .daily-tip .tip-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  animation: float 3s ease-in-out infinite;
 }
-.daily-task .task-list .task-item .task-text.data-v-57280228 {
-  margin-left: 15px;
+.container .daily-tip .tip-content {
+  flex: 1;
+}
+.container .daily-tip .tip-content .tip-title {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.container .daily-tip .tip-content .tip-text {
   font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.8);
 }
-.daily-task .task-list .task-item .task-text.completed.data-v-57280228 {
-  color: #4a7dff;
-  text-decoration: line-through;
-  opacity: 0.8;
-}
-.daily-task .task-list .task-item .uni-icons.data-v-57280228 {
-  transition: all 0.2s ease;
-}
-

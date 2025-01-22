@@ -1,0 +1,101 @@
+/* 水平间距 */
+/* 水平间距 */
+.learn-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #f6f9fc 0%, #eef1f5 100%);
+  min-height: 100vh;
+}
+.learn-container .header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.learn-container .header .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.learn-container .header .progress {
+  margin-top: 15px;
+  text-align: center;
+}
+.learn-container .header .progress text {
+  font-size: 14px;
+  color: #666;
+  display: block;
+  margin-bottom: 8px;
+}
+.learn-container .header .progress .progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.learn-container .header .progress .progress-bar .progress-fill {
+  height: 100%;
+  background: #007AFF;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.learn-container .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+.learn-container .card-container .card {
+  width: 48%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.learn-container .card-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.learn-container .card-container .card .icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+.learn-container .card-container .card:hover .icon {
+  transform: scale(1.1);
+}
+.learn-container .card-container .card .label {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.learn-container .card-container .card .play-btn {
+  width: 40px;
+  height: 40px;
+  background: #007AFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+.learn-container .card-container .card .play-btn image {
+  width: 20px;
+  height: 20px;
+}
+.learn-container .card-container .card .play-btn:active {
+  transform: scale(0.95);
+  background: #0062cc;
+}

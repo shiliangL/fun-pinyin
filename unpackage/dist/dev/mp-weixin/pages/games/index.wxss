@@ -1,0 +1,53 @@
+/* 水平间距 */
+/* 水平间距 */
+.games-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #f6f9fc 0%, #eef1f5 100%);
+  min-height: 100vh;
+}
+.games-container .header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.games-container .header .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+.games-container .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.games-container .card-container .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.games-container .card-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.games-container .card-container .card .icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+.games-container .card-container .card .label {
+  font-size: 18px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.games-container .card-container .card .description {
+  font-size: 14px;
+  color: #666;
+}
